@@ -26,15 +26,9 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-// Populate empty DB with sample data
-require('./lib/config/dummydata');
-
+// Create Express app
 var app = express();
-
-// Express settings
 require('./lib/config/express')(app);
-
-// Routing
 require('./lib/routes')(app);
 
 // Start server
