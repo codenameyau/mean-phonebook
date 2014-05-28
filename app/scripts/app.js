@@ -15,6 +15,6 @@ angular.module('meanPhonebookApp', [
       .otherwise({
         redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
   });

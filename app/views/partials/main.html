@@ -10,9 +10,10 @@
 </div>
 
 <div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+  <div ng-repeat="person in allPerson">
+      <h4>{{person.firstName}} {{person.lastName}}</h4>
+      <p>{{person.phoneNumber}}</p>
+      <br>
   </div>
 </div>
 
