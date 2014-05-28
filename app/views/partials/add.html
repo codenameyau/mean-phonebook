@@ -1,1 +1,30 @@
-{{ demo }}
+<div class="lead">
+  Add new person to phonebook
+</div>
+
+<form role="form">
+
+  <div class="form-group">
+    <label for="inputFirstName">First name</label>
+    <input type="text" class="form-control" id="inputFirstName" placeholder="Enter first name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputLastName">Last name</label>
+    <input type="text" class="form-control" id="inputLastName" placeholder="Enter last name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputPhoneNumber">Phone Number</label>
+    <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="123-456-6789" pattern="\d{3}-\d{3}-\d{4}" title="Format: 123-456-6789" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inputZipcode">Zipcode</label>
+    <input type="tel" class="form-control" id="inputZipcode" placeholder="10001" pattern="\d{5}" required>
+  </div>
+  <br>
+  <button type="submit" class="pull-right btn btn-default">
+    <span class="glyphicon glyphicon-pushpin"></span> Add to Phonebook
+  </button>
+</form>
