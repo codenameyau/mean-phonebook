@@ -10,6 +10,12 @@ angular.module('meanPhonebookApp')
       });
   })
 
-  .controller('AddPersonCtrl', function ($scope) {
-    $scope.demo = 'hello';
+  .controller('AddPersonCtrl', function ($scope, phonebookService) {
+    // Event handler for submit button
+    $scope.addPerson = function() {
+      phonebookService.addNewPerson($scope.entry)
+        .success(function(data, status) {
+          console.log(status);
+        });
+    };
   });
