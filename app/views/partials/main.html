@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="person in allPersons | filter:inputPerson">
+      <tr ng-repeat="person in allPersons | orderBy: ordering | filter:inputPerson">
         <td>{{person.lastName}}</td>
         <td>{{person.firstName}}</td>
         <td>{{person.phoneNumber}}</td>
