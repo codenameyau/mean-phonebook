@@ -16,13 +16,26 @@ angular.module('meanPhonebookApp')
       phonebookService.addNewPerson($scope.entry)
         .success(function(data, status) {
           // Replace with alert
-          console.log(data + ' ' + status);
-          $location.path('/');
+          if (status === 201) {
+            console.log(data);
+            $location.path('/');
+          }
         });
     };
 
   })
 
-  .controller('LookupCtrl', function($scope, $location, phonebookService) {
+  .controller('LookupCtrl', function($scope, $routeParams, $location, phonebookService) {
+    // Lookup person related information
+    var phoneNumber = $routeParams.phoneNumber;
+    phonebookService.getPerson(phoneNumber)
+      .success(function(data) {
+        $scope.lookupInfo = data[0];
+      });
+
+    // Event handler for remove person button
+    $scope.removePerson = function() {
+      console.log("Removing");
+    };
 
   });
