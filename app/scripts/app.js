@@ -10,7 +10,7 @@ angular.module('meanPhonebookApp', [
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+        controller: 'HomepageCtrl'
       })
 
       .when('/add', {
