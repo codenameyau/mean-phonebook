@@ -18,6 +18,11 @@ angular.module('meanPhonebookApp', [
         controller: 'AddPersonCtrl'
       })
 
+      .when('/lookup/:phoneNumber', {
+        templateUrl: 'partials/lookup',
+        controller: 'LookupCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

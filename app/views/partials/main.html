@@ -6,16 +6,16 @@
       <tr>
         <th>Last Name</th>
         <th>First Name</th>
-        <th>Phone Number</th>
         <th>Zipcode</th>
+        <th>Phone Number</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="person in allPersons | orderBy: ordering | filter:inputPerson">
         <td>{{person.lastName}}</td>
         <td>{{person.firstName}}</td>
-        <td>{{person.phoneNumber}}</td>
         <td>{{person.zipcode}}</td>
+        <td><a ng-href="/lookup/{{person.phoneNumber}}">{{person.phoneNumber}}</td>
       </tr>
     </tbody>
   </table>
