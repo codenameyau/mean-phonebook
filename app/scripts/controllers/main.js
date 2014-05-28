@@ -6,4 +6,8 @@ angular.module('meanPhonebookApp')
       $scope.allPersons = persons;
       $scope.ordering = 'lastName';
     });
+  })
+
+  .controller('AddPersonCtrl', function ($scope, $http) {
+    $scope.demo = 'hello';
   });

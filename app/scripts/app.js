@@ -12,6 +12,12 @@ angular.module('meanPhonebookApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
+
+      .when('/add', {
+        templateUrl: 'partials/add',
+        controller: 'AddPersonCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

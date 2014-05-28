@@ -6,7 +6,7 @@ body {
 
 /* Custom Spacing */
 .space-tb-20 {margin-top: 20px; margin-bottom: 20px;}
-.nav-pills > li + li {margin-left: 8px;}
+.nav-pills > li + li {margin-left: 5px;}
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
