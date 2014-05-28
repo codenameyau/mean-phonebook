@@ -1,11 +1,28 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="row marketing">
-  <div ng-repeat="person in allPerson">
-      <h4>{{person.firstName}} {{person.lastName}}</h4>
-      <p>{{person.phoneNumber}}</p>
-      <br>
-  </div>
+<form role="form">
+  <input type="text" class="form-control" ng-model="inputPerson" placeholder="Filter by name or phone number">
+</form>
+
+<div class="space-tb-20">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Phone Number</th>
+        <th>Zipcode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in allPersons | filter:inputPerson">
+        <td>{{person.lastName}}</td>
+        <td>{{person.firstName}}</td>
+        <td>{{person.phoneNumber}}</td>
+        <td>{{person.zipcode}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="footer">

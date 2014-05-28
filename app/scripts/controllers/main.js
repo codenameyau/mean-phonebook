@@ -3,6 +3,6 @@
 angular.module('meanPhonebookApp')
   .controller('MainCtrl', function ($scope, $http) {
     $http.get('/api/person').success(function(persons) {
-      $scope.allPerson = persons;
+      $scope.allPersons = persons;
     });
   });
