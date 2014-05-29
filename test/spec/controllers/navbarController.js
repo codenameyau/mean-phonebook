@@ -15,10 +15,14 @@ describe('Controller: NavbarCtrl', function () {
     NavbarCtrl = $controller('NavbarCtrl', {$scope: scope});
   }));
 
+  // Karma test suite
+  it('should expect isActive to be defined as a function', function () {
+    expect(typeof scope.isActive).toBe('function');
+  });
+
   it('should expect that navbar isActive when same url location', function () {
     $location.url('/');
     expect($location.path()).toBe('/');
-    expect(typeof scope.isActive).toBe('function');
     expect(scope.isActive('/')).toBe(true);
   });
 

@@ -9,7 +9,7 @@ describe('Controller: HomepageCtrl', function () {
   var HomepageCtrl, scope, $httpBackend;
 
   // Initialize the controller and mock http expect
-  beforeEach(inject(function ($injector, $controller, $rootScope) {
+  beforeEach(inject(function($injector, $controller, $rootScope) {
     $httpBackend = $injector.get('$httpBackend');
     $httpBackend.expectGET('/api/person')
       .respond([
@@ -49,8 +49,7 @@ describe('Controller: HomepageCtrl', function () {
     expect(typeof scope.allPersons[0].zipcode).toEqual('string');
   });
 
-  it('should expected scope ordering to be by lastName asc', function () {
-    expect(scope.allPersons).toBeUndefined();
+  it('should expected scope ordering to be set to lastName asc', function () {
     $httpBackend.flush();
     expect(scope.ordering).toEqual('lastName');
   });
@@ -63,10 +62,10 @@ describe('Controller: AddPersonCtrl', function () {
   beforeEach(module('meanPhonebookApp'));
 
   // Include controller, mock scope and httpBackend
-  var AddPersonCtrl, scope, $httpBackend, $location;
+  var AddPersonCtrl, scope, $location;
 
   // Initialize the controller and mock http expect
-  beforeEach(inject(function ($injector, $controller, $rootScope) {
+  beforeEach(inject(function($injector, $controller, $httpBackend, $rootScope) {
     $httpBackend = $injector.get('$httpBackend');
     $location = $injector.get('$location');
     $location.url('/add');
@@ -79,38 +78,42 @@ describe('Controller: AddPersonCtrl', function () {
   it('should expect the location to be at /add', function () {
     expect($location.path()).toBe('/add');
   });
+
+  it('should expect submitEntryButton to be defined', function () {
+    expect(typeof scope.submitEntryButton).toBe('function');
+  });
 });
 
 
-// describe('Controller: LookupCtrl', function () {
+describe('Controller: LookupCtrl', function () {
 
-//   // load the controller's module
-//   beforeEach(module('meanPhonebookApp'));
+  // load the controller's module
+  beforeEach(module('meanPhonebookApp'));
 
-//   // Include controller, mock scope and httpBackend
-//   var LookupCtrl, scope, $httpBackend, $location, $routeParams;
-//   // var phoneTest = '123-456-7890';
+  // Include controller, mock scope and httpBackend
+  var LookupCtrl, scope, $httpBackend, $location;
+  var phoneTest = '123-456-7890';
 
-//   // Initialize the controller and mock http expect
-//   beforeEach(inject(function ($injector, $controller, $rootScope, phonebookService) {
-//     $httpBackend = $injector.get('$httpBackend');
-//     $location = $injector.get('$location');
-//     $routeParams = $injector.get('$routeParams');
-//     $httpBackend.expectGET('/api/person/123-456-7890')
-//       .respond([
-//         {
-//           'firstName': 'John',
-//           'lastName': 'Smith',
-//           'phoneNumber': '123-456-7890',
-//           'zipcode': '10001'
-//         }
-//       ]);
-//     scope = $rootScope.$new();
-//     LookupCtrl = $controller('LookupCtrl', {$scope: scope});
-//   }));
+  // Initialize the controller and mock http expect
+  beforeEach(inject(function ($injector, $controller, $rootScope) {
+    $location = $injector.get('$location');
+    $location.url('/lookup/' + phoneTest);
+    $httpBackend = $injector.get('$httpBackend');
+    $httpBackend.when('GET', '/api/person/' + phoneTest)
+      .respond([
+        {
+          'firstName': 'John',
+          'lastName': 'Smith',
+          'phoneNumber': '123-456-7890',
+          'zipcode': '10001'
+        }
+      ]);
+    scope = $rootScope.$new();
+    LookupCtrl = $controller('LookupCtrl', {$scope: scope});
+  }));
 
-//   // it('should expect the url to contain a phoneNumber', function () {
-//   //   expect($location.path()).toBe('/lookup/' + phoneTest);
-//   // });
+  it('should expect the url to contain a phoneNumber', function () {
+    expect($location.path()).toBe('/lookup/' + phoneTest);
+  });
 
-// });
+});
