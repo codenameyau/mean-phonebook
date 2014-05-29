@@ -69,13 +69,48 @@ describe('Controller: AddPersonCtrl', function () {
   beforeEach(inject(function ($injector, $controller, $rootScope) {
     $httpBackend = $injector.get('$httpBackend');
     $location = $injector.get('$location');
+    $location.url('/add');
     $httpBackend.expectGET('/api/person')
       .respond('Created', 201);
     scope = $rootScope.$new();
     AddPersonCtrl = $controller('AddPersonCtrl', {$scope: scope});
   }));
 
-  it('should expect the location to be at /', function () {
-    expect($location.path()).toBe('/');
+  it('should expect the location to be at /add', function () {
+    expect($location.path()).toBe('/add');
   });
 });
+
+
+// describe('Controller: LookupCtrl', function () {
+
+//   // load the controller's module
+//   beforeEach(module('meanPhonebookApp'));
+
+//   // Include controller, mock scope and httpBackend
+//   var LookupCtrl, scope, $httpBackend, $location, $routeParams;
+//   // var phoneTest = '123-456-7890';
+
+//   // Initialize the controller and mock http expect
+//   beforeEach(inject(function ($injector, $controller, $rootScope, phonebookService) {
+//     $httpBackend = $injector.get('$httpBackend');
+//     $location = $injector.get('$location');
+//     $routeParams = $injector.get('$routeParams');
+//     $httpBackend.expectGET('/api/person/123-456-7890')
+//       .respond([
+//         {
+//           'firstName': 'John',
+//           'lastName': 'Smith',
+//           'phoneNumber': '123-456-7890',
+//           'zipcode': '10001'
+//         }
+//       ]);
+//     scope = $rootScope.$new();
+//     LookupCtrl = $controller('LookupCtrl', {$scope: scope});
+//   }));
+
+//   // it('should expect the url to contain a phoneNumber', function () {
+//   //   expect($location.path()).toBe('/lookup/' + phoneTest);
+//   // });
+
+// });
