@@ -11,8 +11,8 @@ angular.module('meanPhonebookApp')
   })
 
   .controller('AddPersonCtrl', function($scope, $location, phonebookService) {
-    // Event handler for submit button
-    $scope.addPerson = function() {
+    // Event handler: submit button
+    $scope.addButton = function() {
       phonebookService.addNewPerson($scope.entry)
         .success(function(data, status) {
           // Replace with alert
@@ -33,7 +33,7 @@ angular.module('meanPhonebookApp')
       });
 
     // Event handler: remove person button
-    $scope.removePerson = function() {
+    $scope.removeButton = function() {
       phonebookService.removePerson(phoneNumber)
         .success(function() {
           $location.path('/');
@@ -41,7 +41,10 @@ angular.module('meanPhonebookApp')
     };
 
     // Event handler: update person button
-    $scope.updatePerson = function() {
-
+    $scope.updateButton = function() {
+      phonebookService.updatePerson(phoneNumber)
+        .success(function() {
+          $location.path('/');
+        });
     };
   });
