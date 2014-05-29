@@ -1,28 +1,42 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: HomepageCtrl', function () {
 
   // load the controller's module
   beforeEach(module('meanPhonebookApp'));
 
-  var MainCtrl,
-    scope,
-    $httpBackend;
+  // Include controller, mock scope and httpBackend
+  var HomepageCtrl, scope, $httpBackend;
 
-  // Initialize the controller and a mock scope
+  // Initialize the controller and mock http expect
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('/api/awesomeThings')
-      .respond(['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express']);
+    $httpBackend.expectGET('/api/person')
+      .respond([
+        {
+          'firstName': 'John',
+          'lastName': 'Smith',
+          'phoneNumber': '123-456-7890',
+          'zipcode': '10001'
+        },
+        {
+          'firstName': 'Mary',
+          'lastName': 'Json',
+          'phoneNumber': '123-123-5632',
+          'zipcode': '01102'
+        }
+      ]);
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    HomepageCtrl = $controller('HomepageCtrl', {
       $scope: scope
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings).toBeUndefined();
+  it('should attach a list of persons to the scope', function () {
+    expect(scope.allPersons).toBeUndefined();
     $httpBackend.flush();
-    expect(scope.awesomeThings.length).toBe(4);
+    expect(scope.allPersons.length).toBe(2);
+    expect(scope.allPersons[0].firstName).toEqual('John');
+    expect(scope.allPersons[1].firstName).toEqual('Mary');
   });
 });
