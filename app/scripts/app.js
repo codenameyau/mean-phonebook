@@ -14,7 +14,7 @@ angular.module('meanPhonebookApp', [
       })
 
       .when('/add', {
-        templateUrl: 'partials/add',
+        templateUrl: 'partials/entryform',
         controller: 'AddPersonCtrl'
       })
 

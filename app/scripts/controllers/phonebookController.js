@@ -12,10 +12,10 @@ angular.module('meanPhonebookApp')
 
   .controller('AddPersonCtrl', function($scope, $location, phonebookService) {
     // Event handler: submit button
-    $scope.addButton = function() {
+    $scope.submitEntryButton = function() {
       phonebookService.addNewPerson($scope.entry)
         .success(function(data, status) {
-          // Replace with alert
+          // Replace with alert dialog
           if (status === 201) {
             console.log(data);
             $location.path('/');
@@ -41,8 +41,8 @@ angular.module('meanPhonebookApp')
     };
 
     // Event handler: update person button
-    $scope.updateButton = function() {
-      phonebookService.updatePerson(phoneNumber)
+    $scope.submitEntryButton = function() {
+      phonebookService.updatePerson(phoneNumber, $scope.entry)
         .success(function() {
           $location.path('/');
         });
