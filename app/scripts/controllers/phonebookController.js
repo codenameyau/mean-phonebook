@@ -22,7 +22,6 @@ angular.module('meanPhonebookApp')
           }
         });
     };
-
   })
 
   .controller('LookupCtrl', function($scope, $routeParams, $location, phonebookService) {
@@ -35,7 +34,10 @@ angular.module('meanPhonebookApp')
 
     // Event handler for remove person button
     $scope.removePerson = function() {
-      console.log("Removing");
+      phonebookService.removePerson(phoneNumber)
+        .success(function() {
+          $location.path('/');
+        });
     };
 
   });
