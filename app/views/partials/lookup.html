@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  </div>
+  <div class="panel-body">
+    <h2 class="lead">
+      <span class="glyphicon glyphicon-user"></span>
+      {{ entry.firstName }} {{ entry.lastName }}
+
+      <span class="pull-right">
+        <button type="button" class="btn btn-danger" ng-click="removeButton()" title="Delete entry from phonebook">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </span>
+
+    </h2>
+    <h4><span class="glyphicon glyphicon-earphone"></span>
+      {{ entry.phoneNumber }}
+    </h4>
+
+  <br>
+  <hr>
+    <div ng-include="'partials/entryform'"></div>
+  </div>
+  <br>
+
+  <div class="panel-footer"></div>
+</div>
