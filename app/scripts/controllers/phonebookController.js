@@ -29,10 +29,10 @@ angular.module('meanPhonebookApp')
     var phoneNumber = $routeParams.phoneNumber;
     phonebookService.getPerson(phoneNumber)
       .success(function(data) {
-        $scope.lookupInfo = data[0];
+        $scope.entry = data[0];
       });
 
-    // Event handler for remove person button
+    // Event handler: remove person button
     $scope.removePerson = function() {
       phonebookService.removePerson(phoneNumber)
         .success(function() {
@@ -40,4 +40,8 @@ angular.module('meanPhonebookApp')
         });
     };
 
+    // Event handler: update person button
+    $scope.updatePerson = function() {
+
+    };
   });
