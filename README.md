@@ -18,16 +18,37 @@ Phonebook app with angular-fullstack
   `sudo npm install -g generator-angular-fullstack`
 
 
-###Project Structure
+###Project File Structure
 * Angular files in: `app/scripts/`
 * Express API in: `lib/`
 
+
 ###Deploying angular-fullstack App on Heroku
 1. Create an account with a Sandbox Database on [MongoHQ](http://www.mongohq.com/pricing/)
-2. In your root project directory, run:
+
+2. After you create a database, create a mongoDB user in `Admin -> Overview -> Users`
+
+3. You'll need the `Mongo URI` in `Admin -> Overview -> Connection Strings` later
+
+4. In your root project directory, run:
 
   `yo angular-fullstack:deploy heroku`
 
-3. That command will generate a `dist` folder for production, then:
+5. That command will generate a `dist` folder for production, then:
 
   `cd dist/`
+
+6. In your `dist/` files, open `lib/config/env/production.js`
+
+7. Change the line `'mongodb://localhost/fullstack-dev'` to the `Mongo URI` from step 3.
+Make sure to change <user> and <password> to the mongoDB user you created during step 2.
+
+8. Commit and push your changes to heroku
+
+  `git add --all`
+
+  `git commit -m "Deploying...!"`
+
+  `git push heroku master`
+
+9. In your terminal, there will be a prompt saying `<URL> deployed to Heroku`
