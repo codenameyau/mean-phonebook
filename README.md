@@ -41,14 +41,15 @@ Phonebook app with angular-fullstack
 6. In your `dist/` files, open `lib/config/env/production.js`
 
 7. Change the line `'mongodb://localhost/fullstack-dev'` to the `Mongo URI` from step 3.
-Make sure to change <user> and <password> to the mongoDB user you created during step 2.
 
-8. Commit and push your changes to heroku
+8. Make sure to change <user> and <password> to the mongoDB user you created during step 2.
 
-  `git add --all`
+9. Commit and push your changes to heroku
 
-  `git commit -m "Deploying...!"`
+  ```
+  git add --all
+  git commit -m "Deploying...!"
+  git push heroku master
+  ```
 
-  `git push heroku master`
-
-9. In your terminal, there will be a prompt saying `<URL> deployed to Heroku`
+10. In your terminal, there should be a prompt saying `<URL> deployed to Heroku`
