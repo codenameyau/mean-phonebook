@@ -1,5 +1,7 @@
 'use strict';
 
+/* Tests fail due to animations,
+ * comment out ngAnimate in app.js */
 describe('Controller: HomepageCtrl', function () {
 
   // load the controller's module

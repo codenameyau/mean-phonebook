@@ -1,5 +1,7 @@
 'use strict';
 
+/* Tests fail due to animations,
+ * comment out ngAnimate in app.js */
 describe('Controller: NavbarCtrl', function () {
 
   // load the controller's module
@@ -9,7 +11,8 @@ describe('Controller: NavbarCtrl', function () {
   var NavbarCtrl, scope, $location;
 
   // Initialize the controller
-  beforeEach(inject(function($injector, $controller, $rootScope) {
+  beforeEach(inject(function($injector, $controller, $rootScope, $animate) {
+    $animate.enabled(false);
     $location = $injector.get('$location');
     scope = $rootScope.$new();
     NavbarCtrl = $controller('NavbarCtrl', {$scope: scope});
