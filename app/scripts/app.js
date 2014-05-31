@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('meanPhonebookApp', [
-  'ngCookies',
   'ngResource',
-  'ngSanitize',
   'ngRoute',
   'ngAnimate'
 ])
