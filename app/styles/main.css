@@ -1,3 +1,12 @@
+/* Angular Animation */
+.reveal-animation.ng-enter {
+  -webkit-transition: .1s linear all; /* Safari/Chrome */
+  transition: .1s linear all; /* All other modern browsers and IE10+ */
+  opacity: 0;
+}
+/* The animation code itself */
+.reveal-animation.ng-enter.ng-enter-active {opacity: 1;}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
