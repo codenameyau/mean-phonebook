@@ -1,7 +1,9 @@
 mean-phonebook
 ==============
 
-Phonebook app with angular-fullstack
+MEAN-Phonebook is a minimal web application built using the angular-fullstack.
+[Click here](https://bitbucket.org/accountname/angular-blog) to view an AngularJS
+project that uses Python, Flask and SQLAlchemy for its back-end.
 
 ###Live Demo
 * [Deployed on Heroku](https://mean-phonebook.herokuapp.com/)
