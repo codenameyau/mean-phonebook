@@ -1,29 +1,22 @@
 mean-phonebook
 ==============
 
-MEAN-Phonebook is a minimal web application built using the angular-fullstack.
-[Click here](https://bitbucket.org/accountname/angular-blog) to view an AngularJS
-project that uses Python, Flask and SQLAlchemy for its back-end.
+MEAN-Phonebook is a minimal CRUD application built using the angular-fullstack.
+
+[Click here](https://bitbucket.org/accountname/angular-blog) to view a
+project that uses Flask and SQLAlchemy for the back-end and Angular for the front-end.
 
 ###Live Demo
-* [Deployed on Heroku](https://mean-phonebook.herokuapp.com/)
-
-###Development Setup
-1. Clone this repo
-2. Run: `npm install && bower install`
-3. Serve: `grunt serve`
-
-
-###Development Requirements
-* [Yeoman](http://yeoman.io/): `sudo npm install -g yo`
-* [angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack):
-  `sudo npm install -g generator-angular-fullstack`
-
+[Deployed on Heroku](https://mean-phonebook.herokuapp.com/)
 
 ###Project File Structure
 * Angular files in: `app/scripts/`
 * Express API in: `lib/`
 
+###Development Setup
+1. Clone this repository
+2. Run: `npm install && bower install`
+3. Serve: `grunt serve`
 
 ###Deploying angular-fullstack App on Heroku
 1. Create an account with a Sandbox Database on [MongoHQ](http://www.mongohq.com/pricing/)
